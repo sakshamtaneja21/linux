@@ -17,23 +17,23 @@ operating systems @Student's point of view~:
   3.DARWIN ~ :.dmg && Examples ~ (OSX , SNOWL)
   
 ### Few useful Linux Commands~:
-$ mkdir folder-name{1..50}        # {} encloses a range and creates 50 folder in linux
-$ useradd user-name               # Creates a new user
-$ pinky                           # shows information of all available users
-$ rm -f                           # Forcefully remove files 
-$ rm -fv                          # forcefully remove file with an action responding work done
-press F2                          # used to rename a file
-$ cal September 1752              # shows september calendar with dates missing from 3 to 13
-$ date +%Y                        # Current year
-$ date +%A                        # Current Weekday
-$ date +%T                        # Current Time
-$ date --help                     # all options available with date command
-$ cal -j                          # Shows Julean Calendar 
-$ bc                              # opens a calculator
-$ ls -F                           # check which is folder and which is file in a directory
-$ mkdir -p folder1/folder2        #both folders will be created together
-$ rm -rf pi*                      #deletes all folders starting with 'pi' , use anything instead of 'pi'
-$ su                              #switch users through command line
+* $ mkdir folder-name{1..50}        # {} encloses a range and creates 50 folder in linux
+* $ useradd user-name               # Creates a new user
+* $ pinky                           # shows information of all available users
+* $ rm -f                           # Forcefully remove files 
+* $ rm -fv                          # forcefully remove file with an action responding work done
+* $press F2                          # used to rename a file
+* $ cal September 1752              # shows september calendar with dates missing from 3 to 13
+* $ date +%Y                        # Current year
+* $ date +%A                        # Current Weekday
+* $ date +%T                        # Current Time
+* $ date --help                     # all options available with date command
+* $ cal -j                          # Shows Julean Calendar 
+* $ bc                              # opens a calculator
+* $ ls -F                           # check which is folder and which is file in a directory
+* $ mkdir -p folder1/folder2        #both folders will be created together
+* $ rm -rf pi*                      #deletes all folders starting with 'pi' , use anything instead of 'pi'
+* $ su                              #switch users through command line
 
 ### Default Architecture of Windows~:
   Main Account ~: Admin
