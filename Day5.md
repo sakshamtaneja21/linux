@@ -186,8 +186,8 @@ Syntax :
 
 
 ## tasks 
-*Write code in python to connect to SSH without putty
-*How to remove read and write permission from a file or directory for root or admin user
-*List how many people are in a group find that list
-*How to add multiple users in a group at once
+* Write code in python to connect to SSH without putty
+* How to remove read and write permission from a file or directory for root or admin user
+* List how many people are in a group find that list
+* How to add multiple users in a group at once
 
