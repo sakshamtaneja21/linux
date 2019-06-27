@@ -51,6 +51,84 @@
   vgcreate -s 16M vg-name hdd-name1 hdd-name2
   ```
 
+
+# **Ansible**
+
+cli :- Command Line Interface
+```
+sudo pip3 install awscli
+```
+for connectivity
+```
+sudo pip3 install boto3
+```
+```
+pip install boto
+```
+for configure for credentials
+```
+aws configure
+
+AWS Access Key ID [None]: _KEY_
+AWS Secret Access Key [None]: _SECRET_KEY_
+Default region name [None]: ap-south-1b
+Default output format [None]: json
+```
+Default Output format types :- text, json, table
+
+```
+vim launchinstances.yml
+```
+```launchinstances.yml```
+```
+---
+ - hosts: localhost
+   tasks:
+    - ec2:
+       image: ami-5b673c34
+       region: ap-south-1
+       group: naman
+       key_name: ansible
+       instance_type: t2.micro
+       wait: no
+       count: 1x
+```
+
+lists all the modules
+
+```
+ansible-doc -l
+```
+shows the working of ec2
+```
+ansible-doc ec2
+```
+in this working of key pairs is shown
+```
+aws ec2 describe-key-pairs
+```
+```
+aws ec2 help
+```
+
+opening playbook file
+```
+ansible-playbook launchinstance.yml
+```
+
+
+### **Delete Instance**
+
+```deleteinstance.yml```
+```
+---
+ - hosts: localhost
+   tasks:
+    - ec2:
+       instance_ids: i-0fbcb1e1d72817184
+       state: stopped
+       region: ap-south-1
+
 # Data Engineering
   * A classifier requires an accurate data to use its processing algorithm
   * pre-processing of data before applying ML is know as Data Engineering
