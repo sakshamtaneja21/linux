@@ -169,3 +169,9 @@ cat /proc/swaps
   ```
   * a snapshot is a copy of file system which can be allocated anywhere and it takes size from pool (maybe not sure)
 ----
+
+# **RedHat**
+
+For showing the UUID of any disk as this shows the UUID of ```/dev/sda1```
+```
+lsblk --output=uuid /dev/sda1
