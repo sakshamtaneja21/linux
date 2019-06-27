@@ -1,6 +1,113 @@
 
 
 ## Redhat Traininig
+
+# **Redhat**
+Cracking Redhat root password 7.5 or 8
+add these lines which line is starting from "linux" in boot menu 
+
+```ctrl+e```
+```
+enforcing=0 rd.break
+```
+```ctrl+x```
+
+o= other argument
+```
+mount -o remount,rw /sysroot/ 
+
+chroot /sysroot/
+
+passwd root
+```
+this command updates the ```unlabeled_t``` to ```shadow_t``` for reading the root passwords
+```
+restorecon
+```
+Shadow file contains all user's passwords; Z= show security content
+```
+ls -ldZ /etc/shadow
+```
+
+---
+```WarmUp```
+
+Case 2. 
+        1.
+
+Server Version
+```
+cat /etc/os-release
+```
+RAM check
+```
+free -m
+```
+Disk check, CPU info
+```
+df -hT
+
+fdisk -l
+
+cat /proc/cpuinfo
+```
+2.
+
+```
+sudo yum update
+```
+3.
+
+
+```
+partx /dev/xvdb
+
+pvcreate /dev/xvdb1
+vgcreate vg1 /dev/xvd1
+vgs
+pvs
+
+lvcreate --name blu --size 3.8G vg1
+lvs
+
+mkfs.xfs /dev/mapper/vg1-blu
+
+mkdir /home2
+mount /dev/mapper/vg1-blu /home2
+mount | grep -i /home2
+vim /etc/fstab
+blkid # For  UID no.
+```
+```/etc/fstab```
+```
+/dev/mapper/vg1-blu   /home2   xfs   noexec,defaults 0 0
+```
+```
+mount -a
+```
+4.
+```
+sed -i 's/SELINUX=enforcing/SELINUX=disabled' /etc/selinux/config
+```
+5.
+```
+timedatectl set-timezone Asia/Kolkata
+
+timedatectl
+```
+8.
+```
+vi /etc/profile.d/motd.sh
+```
+```
+rm -rf /etc/profile.d/.motd.sh.swp
+```
+```
+cat /proc/cpuinfo | grep -w 'model name' | awk -F: '{print $2}'
+cat /proc/meminfo | grep -w "MemTotal" | awk -F: '{print $2 / 1000}'
+cat /proc/swaps
+``` 
+
 ### Stratis
   * It works on thin provision
   * It allocates memory on run time
