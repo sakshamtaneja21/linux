@@ -99,4 +99,12 @@ pip install boto3 awscli
 ```
 
 
+## Permissions
+
+  * $ chmod a-rwx file-name # permission for all
+  * permissions to a directory can be given either by root or owner of directory
+## Task for Non-HTML
+  * on ec2, launch a webserver and /var/www/html/AI here store playbooks
+  * when each playbook is seen on browser, whatever playbook is clicked, it should run
+
 
