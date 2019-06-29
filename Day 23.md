@@ -99,6 +99,41 @@ x.shape()
 ```
 z[0:5]
 ```
+# Diabetic Data
+#from sklearn.datasets import load_diabetes
+import pandas as pd
+
+data = pd.read_csv('http://13.234.66.67/summer19/datasets/diabetest.csv')
+
+# now printing schema of data
+data.info()
+
+# Describing the data
+data.describe()
+
+# printing original data top 5 columns
+data.head(5)
+
+# plot a particular column with count using seaborn
+import seaborn as sb
+sb.countplot(data['Pregnancies'])
+
+sb.countplot(df['Glucose'])
+
+data.hist(figsize=(15,20))
+
+sb.pairplot(data)
+
+
+
+# Extract Attribute from Data Frame
+features = data.iloc[:,0:8].values
+
+# Extract Label from Data Frame
+label = data.iloc[:,8].values
+label
+
+label.shape
 
 # DAY 15
 # MACHINE LEARNING
