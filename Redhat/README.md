@@ -244,4 +244,5 @@ lsblk --output=uuid /dev/sda1
     ```
     resize2f lvm-name
     ```
-
+```
+```
