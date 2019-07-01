@@ -137,4 +137,3 @@ associate it with your default VPC.
  set for your AWS account with your
   default VPC.
 
-![a](https://photos.app.goo.gl/MxNXLimgFKEdwofG8)
