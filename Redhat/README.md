@@ -338,3 +338,73 @@ for formatting new storage with exist storage format just except xfs format
 ```
 resize2fs
 ```
+
+## **TUNED=** Change the Performance profile like powersave or balance etc.
+
+```
+tuned-adm list
+```
+```
+tuned-adm active
+```
+sets another profile; balanced= profile name
+```
+tuned-adm profile balanced
+```
+tells the recommeded profile which is default
+```
+tuned-adm recommend
+```
+for turning tuned off
+```
+tune-adm off
+```
+powersave= profile name
+```
+tuned-adm profile powersave
+```
+for turning on cockpit socket for web console (_IP_:9090)
+```
+systemctl enable --now cockpit.socket
+```
+
+## **Nice=** sets the performance of any specific process
+Most Better Performance = -20
+Most Lowest Performance = 19
+
+```
+nice>>>>performance >> level>>>-20 to 19 or renice
+```
+shows the current processes
+```
+ps -xl
+```
+&= Shifts command to background
+```
+vi &
+ps -xl | grep vi
+```
+Changing the Nice priority; 6689= Process ID(PID); -n= new Priority
+```
+renice -n 10 6689
+```
+shows the PID, 
+```
+ps -o pid,comm,nice 5235
+```
+```
+ps -aux --sort=pcpu
+```
+Sets the priority and transfers vim .bashrc command in background; priority = -5
+```
+nice -n -5 vim .bashrc&
+```
+
+## **VDO = Virtual Data Optimizer**
+
+```
+yum install vdo kmod-kvdo
+```
+```
+vdo create --name=vdo1 --device=/dev/vdd1 --vdoLogicalSize=50G
+```
