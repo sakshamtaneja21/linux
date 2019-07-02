@@ -246,3 +246,95 @@ lsblk --output=uuid /dev/sda1
     ```
 ```
 ```
+
+for accessing websites from dns 
+
+```vi /etc/resolve.conf```
+```
+
+```
+Make a file immutable(not changeable) even for root and for disable use ```-i```; i= immutable
+```
+chattr +i /etc/resolve.conf
+```
+for checking the immutable files 
+```
+lsattr
+```
+
+### Chrony(NTP= Network Time Protocol)[Chrony is for RHEL 8 and NTP is for RHEL 7]
+
+```
+yum install chrony
+```
+```
+systemctl restart chronyd
+systemctl enable chronyd
+```
+```
+rpm -qc chrony
+```
+```vi /etc/chrony.conf```
+
+comment it 
+```
+pool 2.rhel.pool.ntp.org iburst
+```
+then write the server instead of it
+```
+server adhoc.example.com
+```
+```
+systemctl restart chronyd
+systemctl enable chronyd
+```
+```
+chronyc sourcestats
+chronyc tracking
+```
+
+### **Swap:- For making HDD memory as a RAM**
+
+check memory
+```
+free -m
+```
+firstly make a partition 
+then format it to swap format
+
+```
+mkswap /dev/vde
+```
+for mounting
+```
+swapon /dev/vde
+```
+for unmount
+```
+swapoff /dev/vde
+```
+for UUID
+```
+blkid /dev/vde
+OR
+lsblk --output=UUID /dev/vde
+```
+now entry in fstab
+```
+UUID=_UUID_   swap   swap  defaults 0 0
+```
+
+For Extending Partition size at run time (increasing 100 MB in current storage); -r= formats automatically with current formated type
+```
+lvextend --size +100M /dev/saksham/shubham 
+OR
+lvextend --size +100M /dev/saksham/shubham -r
+```
+for formatting new memory which appends in current memory
+```
+xfs_growfs /dev/saksham
+```
+for formatting new storage with exist storage format just except xfs format
+```
+resize2fs
+```
