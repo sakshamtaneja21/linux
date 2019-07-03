@@ -137,6 +137,4 @@ associate it with your default VPC.
  set for your AWS account with your
   default VPC.
 
-<img src="https://photos.app.goo.gl/MxNXLimgFKEdwofG8"
-     alt="VPC"
-     style="float: left; margin-right: 10px;" />
+tasks 
