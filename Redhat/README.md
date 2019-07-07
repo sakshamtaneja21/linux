@@ -523,9 +523,11 @@ ps -aux --sort=pcpu
     4. check on manual
     5. Move top IPv4 and set all details
     6. reboot
+```
 
 
 # **Redhat**
+```
 Cracking Redhat root password 7.5 or 8
 add these lines which line is starting from "linux" in boot menu 
 
