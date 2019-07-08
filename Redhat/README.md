@@ -497,9 +497,49 @@ ps -aux --sort=pcpu
   ```
   /dev/mapper/vdo1 path-to-mount xfs defaults,x-systemd.requires=vdo.service 0 0
   ```
+/dev/mapper/vdo1 path-to-mount xfs defaults,x-systemd.requires=vdo.service 0 0
 
+---
+
+## AutoFs
+* NFS -> Network File System is a object storage over the internet or intranet
+* AutoFs is used to remove the mounting problem of Fstab raised for 1000 of users working in same community/organization
+* to install Autofs
+
+yum install autofs
+
+* to start service
+
+systemctl start autofs.service
+
+* to enable the service
+
+systemctl enable autofs.service
+
+* after installing Autofs, we are provided with 2 files named
+  1. /etc/auto.master
+  2. /etc/auto.misc
+
+
+* Work of autofs is done over a user server where N users can connect (using something like ssh) and access the NFS shared by main server
+
+## Server Side
+  * create a nfs directory , add path is exports and make it shareable by ```exportfs -r```
+  * ```showmount -e ip-address``` will show the shareable directory path
+
+## Client-Server  Side  
+
+  * Entry in auto.misc is something like
+  ```
+  user-name-who-want-to-access   -fstype=nfs,rw,vers=3   server-ip/nameserver:path-of-nfs-to-mount
+                harry  -fstype=nfs,rw,vers=3  adhoc.example.com:/mnt/share
+  ```
+  * Entry in auto.master is something like
+  ```
+  path-of-nfs-where-you-wish-to-mount  /etc/auto.misc
+  
 ----
-
+```
 # RHEL 8 exam tips  ( NOTHING IS RIGID ... SAMEY KE SAATH PARIVARTAN NISHCHIT HAI )
 1.
   * Base OS = 7.5
